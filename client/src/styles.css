@@ -1,3 +1,39 @@
 h1 {
-    color: #3BA94C
+    color: #3BA94C;
+}
+
+@font-face {
+    font-family: DIN;
+    src: url(fonts/D-DIN.otf);
+}
+
+
+body {
+    font-family: DIN;
+}
+
+.login-screen {
+    background: #E9ECEF;
+    height: 100vh;
+}
+
+.login-element {
+    margin: auto;
+    width: 312px;
+}
+
+.login-text {
+    margin: auto;
+    display: block;
+    width: 312px;
+    align-content: left;
+}
+
+.login-button-1 {
+    color: #3BA94C;
+}
+
+.login-button-2 {
+    background: #3BA94C;
+    border: #3BA94C;
 }
