@@ -1,10 +1,9 @@
 package ultigreen.demo.domain;
 
-public class UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
 
-	public void save(User user) {
-		// TODO Auto-generated method stub
-		
-	}
+public interface UserRepository extends JpaRepository<User, Long>{
+
+	User findByUsername(String username);
 
 }
