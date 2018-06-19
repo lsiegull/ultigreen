@@ -4,7 +4,6 @@ import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
-import { fakeBackendProvider } from './helpers';
 
 import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
@@ -46,10 +45,7 @@ import { ReusableItemsComponent } from './reusable-items/reusable-items.componen
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,
             multi: true
-        },
-
-        // provider used to create fake backend
-        fakeBackendProvider
+        }
     ],
     bootstrap: [AppComponent]
 })
