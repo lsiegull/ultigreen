@@ -1,4 +1,4 @@
-package ultigreen.demo;
+package ultigreen.demo.controller;
 
 
 import org.slf4j.Logger;
