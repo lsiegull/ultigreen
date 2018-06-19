@@ -40,13 +40,17 @@ public class AdminController {
     public ResponseEntity<String> generateUserTable() {
         //create table
         jdbcTemplate.execute("DROP TABLE IF EXISTS users");
-        jdbcTemplate.execute("CREATE TABLE users(username VARCHAR(255) NOT NULL PRIMARY KEY, password VARCHAR(255) NOT NULL)");
+        jdbcTemplate.execute("CREATE TABLE users("
+                        +"id BIGINT auto_increment, "
+                        +"username VARCHAR(255) NOT NULL, "
+                        +"pw VARCHAR(255) NOT NULL, "
+                        +"PRIMARY KEY(id) )");
 
         //populate table
         List<Object[]> splitUpLogins = Arrays.asList("username password", "admin admin", "testUser testPass").stream()
                 .map(name -> name.split(" "))
                 .collect(Collectors.toList());
-        jdbcTemplate.batchUpdate("INSERT INTO users(username, password) VALUES (?,?)", splitUpLogins);
+        jdbcTemplate.batchUpdate("INSERT INTO users(username, pw) VALUES (?,?)", splitUpLogins);
 
         return new ResponseEntity<String>("Completed creating the user table", HttpStatus.OK);
     }
