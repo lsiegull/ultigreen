@@ -1,16 +1,17 @@
-﻿<form [formGroup]="loginForm" class="login-form" (ngSubmit)="onSubmit()">
+﻿<h1 class="text-center login-header">UltiGreen</h1>
+<form [formGroup]="loginForm" class="login-form" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="username" class="login-text">Username</label>
         <input type="text" formControlName="username" class="form-control login-element" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
+            <div *ngIf="f.username.errors.required" class="login-text">Username is required</div>
         </div>
     </div>
     <div class="form-group">
         <label for="password" class="login-text">Password</label>
         <input type="password" formControlName="password" class="form-control login-element" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.required" class="login-text">Password is required</div>
         </div>
     </div>
     <div class="form-group login-element">

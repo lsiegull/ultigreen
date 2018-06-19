@@ -1,25 +1,26 @@
-﻿<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+﻿<h1 class="text-center login-header">UltiGreen</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="username" class="login-text">Username</label>
         <input type="text" formControlName="username" class="form-control login-element" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
+            <div *ngIf="f.username.errors.required" class="login-text">Username is required</div>
         </div>
     </div>
     <div class="form-group">
         <label for="password" class="login-text">Password</label>
         <input type="password" formControlName="password" class="form-control login-element" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+            <div *ngIf="f.password.errors.required" class="login-text">Password is required</div>
+            <div *ngIf="f.password.errors.minlength" class="login-text">Password must be at least 6 characters</div>
         </div>
     </div>
     <div class="form-group">
             <label for="verifypassword" class="login-text">Verify Password</label>
             <input type="password" formControlName="passverify" class="form-control login-element" [ngClass]="{ 'is-invalid': submitted && f.passverify.errors }" />
             <div *ngIf="submitted && f.passverify.errors" class="invalid-feedback">
-                <div *ngIf="f.passverify.errors.required">Password verification is required</div>
-                <div *ngIf="registerForm.controls['passverify'].errors?.matchOther">Passwords must match</div> <!--doesn't work yet-->
+                <div *ngIf="f.passverify.errors.required" class="login-text">Password verification is required</div>
+                <div *ngIf="registerForm.controls['passverify'].errors?.matchOther" class="login-text">Passwords must match</div> <!--doesn't work yet-->
             </div>
     </div>
     <div class="form-group login-element">
