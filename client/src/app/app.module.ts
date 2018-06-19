@@ -16,6 +16,9 @@ import { AlertService, AuthenticationService, UserService } from './services';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
+import { FoodComponent } from './food/food.component';
+import { TransportationComponent } from './transportation/transportation.component';
+import { ReusableItemsComponent } from './reusable-items/reusable-items.component';
 
 @NgModule({
     imports: [
@@ -29,7 +32,10 @@ import { RegisterComponent } from './register';
         AlertComponent,
         HomeComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        FoodComponent,
+        TransportationComponent,
+        ReusableItemsComponent
     ],
     providers: [
         AuthGuard,
