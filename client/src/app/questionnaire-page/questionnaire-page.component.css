@@ -1,0 +1,33 @@
+/* TransportationComponent's private CSS styles */
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  .page {
+    margin: 0 0 2em 0;
+    padding: 5%;
+  }
+
+  ul{
+    list-style-type: none;
+    text-align: left;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  button {
+    background-color: #28A536;
+    color: #FFFFFF;
+    width: 8em;
+  }
+
+  .navBtnsDiv {
+    width: auto;
+  }
+  #btnPrev {
+    float: left;
+  }
+
+  #btnNext{
+    float: right;
+  }

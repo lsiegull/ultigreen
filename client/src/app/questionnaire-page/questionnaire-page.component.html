@@ -1,0 +1,25 @@
+<div class="page">
+  <h2>Transportation Questions</h2>
+
+  <ul>
+    <li *ngFor="let transportQ of transportationQuestions"
+      [class.selected]="transportQ===selectedQ"
+      (click)="onSelect(transportQ)">
+      <span class='question'>
+        {{transportQ.question}}
+        <br>
+        <input [(ngModel)]="transportQ.answer" placeholder="answer" name="answer">
+      </span>
+      <br>
+      <br>
+    </li>
+  </ul>
+
+  <div class="navBtnsDiv">
+    <button type="button" class="btn" id="btnPrev"
+      (click)="ngOnClick(true)">Previous</button>
+    <button type="button" class="btn" id="btnNext"
+      (click)="ngOnClick(false)">Next</button>
+  </div>
+  
+</div>
