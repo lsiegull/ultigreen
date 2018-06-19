@@ -1,10 +1,27 @@
-﻿<!-- <h1>Hi {{currentUser.firstName}}!</h1> -->
-<p>You're logged in with Angular 6!!</p>
-<h3>All registered users:</h3>
-<ul>
-    <!-- <li *ngFor="let user of users">
-        {{user.username}} ({{user.firstName}} {{user.lastName}})
-        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-    </li> -->
-</ul>
+<h1 class="home-header">Hi {{currentUser}}!</h1>
+<button [disabled]="loading" class="btn btn-primary questionairre-button">Calculate your carbon footprint</button>
+<div class="card">
+    <img src="https://www.altoastral.com.br/wp-content/uploads/2017/08/frutas-nas-saladas-variedade.jpg" alt="Veggies" style="width:100%; height:110px; object-fit: cover;">
+    <div class="card-container">
+        <h4><b>Green Dining</b></h4> 
+        <p>See which food choices can help reduce your carbon footprint</p> 
+    </div>
+</div>
+<div>&nbsp;</div>
+<div class="card">
+    <img src="https://cdnmos-bikeradar.global.ssl.fastly.net/images/news/2017/06/13/commuting-bike-10-1463408899368-ofn32g3s014x-1497360226422-9hjblf7lgjxp-1260-80.jpg" alt="Transportation" style="width:100%; height:110px; object-fit: cover;">
+    <div class="card-container">
+        <h4><b>Transportation Options</b></h4> 
+        <p>Discover healthy alternatives that can save energy</p> 
+    </div>
+</div>
+<div>&nbsp;</div>
+<div class="card">
+    <img src="http://www.polonyadan.com/wp-content/uploads/2018/02/tupper-head.jpg" alt="Reusable Items" style="width:100%; height:110px; object-fit: cover;">
+    <div class="card-container">
+        <h4><b>Reusable Items</b></h4> 
+        <p>Learn how using reusable everyday items can make an impact</p> 
+    </div>
+</div>
+<div>&nbsp;</div>
 <p><a [routerLink]="['/login']">Logout</a></p>
