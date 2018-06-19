@@ -29,8 +29,8 @@ public class APITransportation {
 
     }
 
-    @PostMapping(path="/addEntry/{transportationEntry}")
-    public ResponseEntity<String> addEntryForUser(@PathVariable("transportationEntry") TransportationEntry entry){
+    @PostMapping(path="/addEntry")
+    public ResponseEntity<String> addEntryForUser(@RequestBody TransportationEntry entry){
         if (entry != null) {
             return transportationService.addEntryForUser(entry);
         }
