@@ -8,12 +8,14 @@ h1 {
 }
 
 
-body {
+body, html {
     font-family: DIN;
+    height: 100%;
 }
 
 .login-screen {
     background: #E9ECEF;
+    min-height: 100vh;
     background-attachment: fixed;
 }
 
