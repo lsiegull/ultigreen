@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+import { QuestionItem, ShortAnswer, Dropdown } from '../questionItem';
+
+@Component({
+  selector: 'app-reusable-dishware',
+  templateUrl: './reusable-dishware.component.html',
+  styleUrls: ['./reusable-dishware.component.css']
+})
+export class ReusableDishwareComponent implements OnInit {
+  title: string = "Reusable Dishware";
+  reusableQuestions: QuestionItem[] = [
+    <ShortAnswer> {id: 1, question: "How many single-use styrofoam products do you use per day at work?", answer: "1", type: "ShortAnswer"},
+    <ShortAnswer> {id: 2, question: "How many single-use plastic products do you use per day at work?", answer: "1", type: "ShortAnswer"},
+    <ShortAnswer> {id: 3, question: "How many single-use Bagasse products do you use per day at work?", answer: "1", type: "ShortAnswer"},
+    <ShortAnswer> {id: 4, question: "How many single-use non-recycled paper products do you use per day at work?", answer: "1", type: "ShortAnswer"},
+    <ShortAnswer> {id: 5, question: "How many single-use recycled paper products do you use per day at work?", answer: "1", type: "ShortAnswer"}
+  ];
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+
+
+
+
+
+
