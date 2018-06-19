@@ -1,3 +1,5 @@
+package ultigreen.demo.domain;
+
 public class Food {
 
     private String name;

@@ -20,42 +20,43 @@ public class FoodService {
     private static final int DAYS_IN_WEEK = 7;
     private static final int WEEKS_IN_YR = 52;
 
-    public void insertIntoDatabase(Food[] items) {
+    public void insertIntoDatabase(List<Food> items) {
         jdbcTemplate.batchUpdate(makeSql(items), splitUpItems(items));
     }
 
-    private String makeSql(Food[] items) {
+    private String makeSql(List<Food> items) {
         String sql = "INSERT INTO food(";
-        for (int i = 0; i < items.length - 1; i++) {
-            sql += items[i].getName() + ", ";
+        for (int i = 0; i < items.size() - 1; i++) {
+            sql += items.get(i).getName() + ", ";
         }
-        sql += items[items.length - 1] + ") values (";
-        for (int i = 0; i < items.length - 1; i++) {
+        sql += items.get(items.size() - 1) + ") values (";
+        for (int i = 0; i < items.size() - 1; i++) {
             sql += "?, ";
         }
         sql += "?)";
         return sql;
     }
 
-    private List<Object[]> splitUpItems(Food[] items) {
+    private List<Object[]> splitUpItems(List<Food> items) {
         String list = "";
-        for (int i = 0; i < items.length - 1; i++) {
-            list += items[i].getServings();
+        for (int i = 0; i < items.size() - 1; i++) {
+            list += items.get(i).getServings();
         }
-        list += items[items.length - 1];
+        list += items.get(items.size() - 1);
         return Arrays.asList(list).stream().map(str -> str.split(" ")).collect(Collectors.toList());
     }
 
     public double calculateCarbonFootprint() {
         // Need to retreive items from db
-        double totalDailyCarbonFootprint = 0;
-        for (Food item : items) {
-            String name = item.getName().toUpperCase();
-            FoodInfo info = FoodInfo.valueOf(name);
-            if (info != null) {
-                totalDailyCarbonFootprint += info.calculateCarbonFootprint(item.getServings());
-            }
-        }
-        return totalDailyCarbonFootprint * DAYS_IN_WEEK * WEEKS_IN_YR;
+        // double totalDailyCarbonFootprint = 0;
+        // for (Food item : items) {
+        //     String name = item.getName().toUpperCase();
+        //     FoodInfo info = FoodInfo.valueOf(name);
+        //     if (info != null) {
+        //         totalDailyCarbonFootprint += info.calculateCarbonFootprint(item.getServings());
+        //     }
+        // }
+        // return totalDailyCarbonFootprint * DAYS_IN_WEEK * WEEKS_IN_YR;
+        return 0;
     }
 }
