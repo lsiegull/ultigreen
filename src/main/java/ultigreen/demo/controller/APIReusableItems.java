@@ -8,18 +8,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ultigreen.demo.domain.AppUser;
 import ultigreen.demo.domain.ReusableAnswer;
 import ultigreen.demo.domain.ReusableAnswerRepository;
 import ultigreen.demo.domain.ReusableQuestion;
+import ultigreen.demo.domain.UserRepository;
 
 @RestController
 @RequestMapping(path="/reusables")
 public class APIReusableItems {
 
 	private ReusableAnswerRepository repository;
+	//private UserRepository repositoryU;
 	
 	public APIReusableItems() {
 		
@@ -31,7 +34,7 @@ public class APIReusableItems {
 		int carbonTotal = 0;
 		Iterable<ReusableAnswer> answers = repository.findAll();
 		for (ReusableAnswer answer : answers ) {
-			if (answer.getUser().getUsername().equals(user.getUsername())) {
+			if (answer.getUser().equals(user.getUsername())) {
 				carbonTotal += answer.getCarbon();
 			}
 		}
@@ -40,16 +43,17 @@ public class APIReusableItems {
 	
 	@SuppressWarnings("rawtypes")
 	@PostMapping(path= "/")
-	public ResponseEntity addRQuestions(@RequestBody List<ReusableQuestion> questions, AppUser user) {
-		for ( ReusableQuestion question: questions ) {
+	public ResponseEntity addRQuestions(@RequestBody List<String> answers, @RequestParam("username") String userId) {
+		for(int i = 0; i < answers.size(); i++ ) {
 			ReusableAnswer rAnswer = new ReusableAnswer();
-			rAnswer.setQuestion(question);
-			rAnswer.setResponse(question.getResponse());
-			rAnswer.setUser(user);
+			rAnswer.setQuestion(ReusableQuestion.getQuestionFromId(i));
+			rAnswer.setResponse(answers.get(i));
+			rAnswer.setUser(userId);
 			rAnswer.setType();
 			rAnswer.setCarbon();
 			repository.save(rAnswer);
 		}
 		return new ResponseEntity(HttpStatus.OK);
 	}
+	
 }

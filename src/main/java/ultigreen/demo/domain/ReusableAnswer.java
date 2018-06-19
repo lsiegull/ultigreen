@@ -18,13 +18,11 @@ public class ReusableAnswer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private AppUser user;
+    @Column(name = "user_id")
+    private String user;
     
-    @ManyToOne
-    @JoinColumn(name = "question_id")
-    private ReusableQuestion question;
+    @Column(name = "question_id")
+    private String question;
     
     @Column(name = "type")
     private String type;
@@ -47,19 +45,19 @@ public class ReusableAnswer {
 		this.id = id;
 	}
 
-	public AppUser getUser() {
+	public String getUser() {
 		return user;
 	}
 
-	public void setUser(AppUser user) {
+	public void setUser(String user) {
 		this.user = user;
 	}
 
-	public ReusableQuestion getQuestion() {
+	public String getQuestion() {
 		return question;
 	}
 
-	public void setQuestion(ReusableQuestion question) {
+	public void setQuestion(String question) {
 		this.question = question;
 	}
 
@@ -91,16 +89,16 @@ public class ReusableAnswer {
 		}
 	}
 	public void setType() {
-		if (this.question.getQuestion().contains("paper")) {
+		if (this.question.contains("paper")) {
 			this.type = "paper";
 		}
-		if (this.question.getQuestion().contains("plastic")) {
+		if (this.question.contains("plastic")) {
 			this.type = "plastic";
 		}
-		if (this.question.getQuestion().contains("Bagasse")) {
+		if (this.question.contains("Bagasse")) {
 			this.type = "bagasse";
 		}
-		if (this.question.getQuestion().contains("styrofoam")) {
+		if (this.question.contains("styrofoam")) {
 			this.type = "styrofoam";
 		}
 	}

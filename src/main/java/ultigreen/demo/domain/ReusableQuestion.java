@@ -40,4 +40,20 @@ public class ReusableQuestion {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
+	
+	public static String getQuestionFromId( int id ) {
+		if (id == 1 ) {
+			return "How many single-use styrofoam products do you use per week at work?";
+		}
+		if (id == 2) {
+			return "How many single-use plastic products do you use per week at work?";
+		}
+		if (id == 3) {
+			return "How many single-use Bagasse products do you use per week at work?";
+		}
+		if (id == 4) {
+			return "How many single-use paper products do you use per week at work?";
+		}
+		return "";
+	}
 }

@@ -84,7 +84,8 @@ public class AdminController {
 
     @GetMapping(path="/generate/tableware-footprint-table")
     public ResponseEntity<String> generateTablewareFootprintTable() {
-        //TODO
+    	jdbcTemplate.execute("DROP TABLE IF EXISTS tableware_footprint");
+    	
         return new ResponseEntity<String>("Completed creating the tableware footprint table", HttpStatus.OK);
     }
 
