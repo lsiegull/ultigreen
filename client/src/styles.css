@@ -17,6 +17,10 @@ body {
     height: 100vh;
 }
 
+.login-header {
+    padding-top: 135px;
+}
+
 .login-element {
     margin: auto;
     width: 312px;

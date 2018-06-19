@@ -16,9 +16,9 @@
     </div>
     <div class="form-group">
             <label for="verifypassword" class="login-text">Verify Password</label>
-            <input type="password" formControlName="passverify" class="form-control login-element" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">Password verification is required</div>
+            <input type="password" formControlName="passverify" class="form-control login-element" [ngClass]="{ 'is-invalid': submitted && f.passverify.errors }" />
+            <div *ngIf="submitted && f.passverify.errors" class="invalid-feedback">
+                <div *ngIf="f.passverify.errors.required">Password verification is required</div>
                 <div *ngIf="registerForm.controls['passverify'].errors?.matchOther">Passwords must match</div> <!--doesn't work yet-->
             </div>
     </div>
