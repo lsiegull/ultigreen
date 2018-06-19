@@ -4,7 +4,7 @@ import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
-import { fakeBackendProvider } from './helpers';
+//import { fakeBackendProvider } from './helpers';
 
 import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
@@ -43,7 +43,7 @@ import { RegisterComponent } from './register';
         },
 
         // provider used to create fake backend
-        fakeBackendProvider
+        //fakeBackendProvider
     ],
     bootstrap: [AppComponent]
 })

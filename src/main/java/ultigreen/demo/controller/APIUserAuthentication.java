@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import ultigreen.demo.domain.AppUser;
 import ultigreen.demo.domain.UserRepository;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path="/users")
 public class APIUserAuthentication {
 
@@ -28,9 +30,9 @@ public class APIUserAuthentication {
     }
     
     @PostMapping(path="/signup")
-    public @ResponseBody String signUp(@RequestParam String name, @RequestParam String password) {
+    public @ResponseBody String signUp(@RequestParam String username, @RequestParam String password) {
     	AppUser u = new AppUser();
-    	u.setUsername(name);
+    	u.setUsername(username);
     	u.setPassword(password);
     	userRepository.save(u);
     	return "Saved";
