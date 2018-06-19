@@ -3,18 +3,25 @@ package ultigreen.demo.domain;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Entity;
 
 @Entity
+@Table(name= "Users")
 public class AppUser {
     
+	public AppUser() {
+		
+	}
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
     private String username;
     
-    private String password;
+    
+    private String pw;
     
     public long getId() {
         return this.id;
@@ -29,11 +36,11 @@ public class AppUser {
     }
 
     public String getPassword() {
-        return password;
+        return pw;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.pw = password;
     }
 	
 
