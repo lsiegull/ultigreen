@@ -7,10 +7,27 @@
       <span class='question'>
         {{qItem.question}}
         <br>
-        <input 
-          [(ngModel)]="qItem.answer" 
-          placeholder="answer" 
-          ngFocus="onSelect(qItem)">
+
+        <div>
+          <div *ngIf="qItem.type==='ShortAnswer'">
+            <input [(ngModel)]="qItem.answer" 
+              placeholder="answer" 
+              ngFocus="onSelect(qItem)">
+          </div>
+
+          <div *ngIf="qItem.type==='Dropdown'">
+              <select [(ngModel)]="qItem.answer">
+                  <option *ngFor="let opt of qItem.options">
+                      {{opt}}
+                  </option>
+              </select>
+          </div>
+
+          <div *ngElse>
+            SOMETHING WENT BADLY WRONG
+          </div>
+        </div>
+
       </span>
       <br>
       <br>

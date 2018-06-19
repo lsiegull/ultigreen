@@ -4,14 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TransportationComponent } from './transportation/transportation.component';
-import { TransportationDetailComponent } from './transportation-detail/transportation-detail.component';
 import { QuestionnairePageComponent } from './questionnaire-page/questionnaire-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TransportationComponent,
-    TransportationDetailComponent,
     QuestionnairePageComponent
   ],
   imports: [
