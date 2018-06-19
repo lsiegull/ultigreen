@@ -16,6 +16,9 @@ import { AlertService, AuthenticationService, UserService } from './services';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
+import { FoodComponent } from './food/food.component';
+import { TransportationComponent } from './transportation/transportation.component';
+import { ReusableItemsComponent } from './reusable-items/reusable-items.component';
 import { TransportationQuestionnaireComponent } from './transportation-questionnaire/transportation-questionnaire.component';
 import { QuestionnairePageComponent } from './questionnaire-page/questionnaire-page.component';
 import { ReusableDishwareQuestionnaireComponent } from './reusable-dishware-questionnaire/reusable-dishware-questionnaire.component';
@@ -35,6 +38,9 @@ import { FoodQuestionnaireComponent } from './food-questionnaire/food-questionna
         HomeComponent,
         LoginComponent,
         RegisterComponent,
+        FoodComponent,
+        TransportationComponent,
+        ReusableItemsComponent,
         TransportationQuestionnaireComponent,
         QuestionnairePageComponent,
         ReusableDishwareQuestionnaireComponent,
