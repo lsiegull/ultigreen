@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionItem, ShortAnswer, Dropdown } from '../questionItem';
 
 @Component({
-  selector: 'app-transportation',
-  templateUrl: './transportation.component.html',
-  styleUrls: ['./transportation.component.css']
+  selector: 'app-transportation-questionnaire',
+  templateUrl: './transportation-questionnaire.component.html',
+  styleUrls: ['./transportation-questionnaire.component.css']
 })
-export class TransportationComponent implements OnInit {
+export class TransportationQuestionnaireComponent implements OnInit {
   title: string = "Transportation";
   transportationQuestions: QuestionItem[] = [
     <ShortAnswer> {id: 1, question: "How far away in miles do you live from work?", answer: "12", type:"ShortAnswer"},

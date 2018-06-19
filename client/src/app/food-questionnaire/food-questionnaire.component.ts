@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionItem, ShortAnswer, Dropdown } from '../questionItem';
 
 @Component({
-  selector: 'app-food',
-  templateUrl: './food.component.html',
-  styleUrls: ['./food.component.css']
+  selector: 'app-food-questionnaire',
+  templateUrl: './food-questionnaire.component.html',
+  styleUrls: ['./food-questionnaire.component.css']
 })
-export class FoodComponent implements OnInit {
+export class FoodQuestionnaireComponent implements OnInit {
   title: string = "Food";
   foodQuestions: QuestionItem[] = [
     <ShortAnswer> {id: 1, question: "How many servings of lamb do you consume in 1 day? A serving of meat is 3 oz which is approximately how much can fit in your palm.", answer: "3", type: "ShortAnswer"},

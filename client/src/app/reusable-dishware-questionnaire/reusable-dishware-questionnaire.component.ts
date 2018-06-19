@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionItem, ShortAnswer, Dropdown } from '../questionItem';
 
 @Component({
-  selector: 'app-reusable-dishware',
-  templateUrl: './reusable-dishware.component.html',
-  styleUrls: ['./reusable-dishware.component.css']
+  selector: 'app-reusable-dishware-questionnaire',
+  templateUrl: './reusable-dishware-questionnaire.component.html',
+  styleUrls: ['./reusable-dishware-questionnaire.component.css']
 })
-export class ReusableDishwareComponent implements OnInit {
+export class ReusableDishwareQuestionnaireComponent implements OnInit {
   title: string = "Reusable Dishware";
   reusableQuestions: QuestionItem[] = [
     <ShortAnswer> {id: 1, question: "How many single-use styrofoam products do you use per day at work?", answer: "1", type: "ShortAnswer"},
