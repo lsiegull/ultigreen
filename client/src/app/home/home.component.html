@@ -1,3 +1,7 @@
+<div class="main-header-container">
+    <h1 class="text-center main-header">UltiGreen</h1>
+</div>
+
 <h1 class="home-header">Hi {{currentUser}}!</h1>
 <button [disabled]="loading" class="btn btn-primary questionairre-button">Calculate your carbon footprint</button>
 <div class="card">
@@ -30,4 +34,4 @@
     </a>
 </div>
 <div>&nbsp;</div>
-<p><a [routerLink]="['/login']">Logout</a></p>
+<p><a [routerLink]="['/login']" class="btn btn-link login-button-1">Logout</a></p>

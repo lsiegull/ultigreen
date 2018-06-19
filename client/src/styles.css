@@ -14,7 +14,7 @@ body {
 
 .login-screen {
     background: #E9ECEF;
-    height: 100vh;
+    background-attachment: fixed;
 }
 
 .login-header {
@@ -45,6 +45,17 @@ body {
 .home-header {
     padding-top: 25px;
     display: inline-block;
+}
+
+.main-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.main-header-container {
+    background: white;
+    width: 100vw;
+    margin-left: -450px;
 }
 
 .card {
