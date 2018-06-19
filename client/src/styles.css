@@ -1,6 +1,5 @@
 h1 {
     color: #3BA94C;
-    display: inline-block;
 }
 
 @font-face {
@@ -45,6 +44,7 @@ body {
 
 .home-header {
     padding-top: 25px;
+    display: inline-block;
 }
 
 .card {
