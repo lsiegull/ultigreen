@@ -8,13 +8,15 @@ h1 {
 }
 
 
-body {
+body, html {
     font-family: DIN;
+    height: 100%;
 }
 
 .login-screen {
     background: #E9ECEF;
-    height: 100vh;
+    min-height: 100vh;
+    background-attachment: fixed;
 }
 
 .login-header {
@@ -40,4 +42,49 @@ body {
 .login-button-2 {
     background: #3BA94C;
     border: #3BA94C;
+}
+
+.home-header {
+    padding-top: 25px;
+    display: inline-block;
+}
+
+.main-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.main-header-container {
+    background: white;
+    width: 100vw;
+    margin-left: -450px;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.card-container {
+    padding: 2px 16px;
+}
+
+.questionairre-button {
+    background: #3BA94C;
+    border: #3BA94C;
+    float: right;
+    margin-top: 30px;
+}
+
+.card-link {
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    color: inherit;
 }
