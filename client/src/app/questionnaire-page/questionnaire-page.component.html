@@ -10,7 +10,8 @@
 
         <div>
           <div *ngIf="qItem.type==='ShortAnswer'">
-            <input [(ngModel)]="qItem.answer" 
+            <input type="number"
+              [(ngModel)]="qItem.answer" 
               placeholder="answer" 
               ngFocus="onSelect(qItem)">
           </div>
