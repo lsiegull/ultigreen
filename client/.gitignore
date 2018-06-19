@@ -4,7 +4,7 @@
 /dist
 /tmp
 /out-tsc
-.class
+*.class
 
 # dependencies
 /node_modules
@@ -34,7 +34,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-.properties
+*.properties
 
 # System Files
 .DS_Store
