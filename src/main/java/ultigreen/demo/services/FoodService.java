@@ -7,15 +7,18 @@ import ultigreen.demo.domain.Food;
 @Service
 public class FoodService {
 
+    private static final int DAYS_IN_WEEK = 7;
+    private static final int WEEKS_IN_YR = 52;
+
     public double createService(Food[] foodItems) {
-        double totalWeeklyCarbonFootprint = 0;
+        double totalDailyCarbonFootprint = 0;
         for (Food foodItem : foodItems) {
             String name = foodItem.getName().toUpperCase();
             FoodInfo info = FoodInfo.valueOf(name);
             if (info != null) {
-                totalWeeklyCarbonFootprint += info.calculateCarbonFootprint(foodItem.getServings());
+                totalDailyCarbonFootprint += info.calculateCarbonFootprint(foodItem.getServings());
             }
         }
-        return totalWeeklyCarbonFootprint;
+        return totalDailyCarbonFootprint * DAYS_IN_WEEK * WEEKS_IN_YR;
     }
 }

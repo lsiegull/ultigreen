@@ -16,8 +16,8 @@ public enum FoodInfo {
         this.poundsCarbonPerKg = poundsCarbonPerKg;
     }
 
-    public double calculateCarbonFootprint(double numServingsPerWeek) {
-        double grams = numServingsPerWeek * gramsPerServing;
+    public double calculateCarbonFootprint(double numServingsPerDay) {
+        double grams = numServingsPerDay * gramsPerServing;
         double kilograms = grams / GRAMS_PER_KG;
         double pounds = kilograms * poundsCarbonPerKg;
         return pounds;
