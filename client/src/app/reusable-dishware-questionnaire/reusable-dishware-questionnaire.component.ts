@@ -15,6 +15,9 @@ export class ReusableDishwareQuestionnaireComponent implements OnInit {
     <ShortAnswer> {id: 4, question: "How many single-use non-recycled paper products do you use per day at work?", answer: "1", type: "ShortAnswer"},
     <ShortAnswer> {id: 5, question: "How many single-use recycled paper products do you use per day at work?", answer: "1", type: "ShortAnswer"}
   ];
+  prevPage = "food-questionnaire";
+  nextPage = "transportation-questionnaire";
+  
   constructor() { }
 
   ngOnInit() {
