@@ -36,10 +36,12 @@
   </ul>
 
   <div class="navBtnsDiv">
-    <button type="button" class="btn" id="btnPrev"
-      (click)="ngOnClick(true)">Previous</button>
-    <button type="button" class="btn" id="btnNext"
-      (click)="ngOnClick(false)">Next</button>
+    <a routerLink="/{{prevPage}}">
+      <button type="button" class="btn" id="btnPrev">Previous</button>
+    </a>
+    <a routerLink="/{{nextPage}}">
+      <button type="button" class="btn" id="btnNext">Next</button>
+    </a>
   </div>
   
 </div>
