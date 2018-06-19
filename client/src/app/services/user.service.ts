@@ -1,6 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RequestOptions } from '@angular/http';
+import { map } from 'rxjs/operators';
 
 import { User } from '../models';
 
@@ -8,28 +9,14 @@ import { User } from '../models';
 export class UserService {
     constructor(private http: HttpClient) { }
 
-    // getAll() {
-    //     return this.http.get<User[]>('/api/users');
-    // }
-
-    // getById(id: number) {
-    //     return this.http.get('/api/users/' + id);
-    // }
-
     create(user: User) {
         return this.http.post('http://localhost:8080/users/signup', null, {
             params: {
                 username: user.username,
                 password: user.password
             }
-        });
+        }).pipe(map(user => {
+            return user
+        }));
     }
-
-    // update(user: User) {
-    //     return this.http.put('/api/users/' + user.id, user);
-    // }
-
-    // delete(id: number) {
-    //     return this.http.delete('/api/users/' + id);
-    // }
 }

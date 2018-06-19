@@ -28,14 +28,21 @@ public class APIUserAuthentication {
     public APIUserAuthentication() {
     	
     }
-    
+	
+	@SuppressWarnings({ "rawtypes" })
     @PostMapping(path="/signup")
-    public @ResponseBody String signUp(@RequestParam String username, @RequestParam String password) {
-    	AppUser u = new AppUser();
+    public ResponseEntity signUp(@RequestParam String username, @RequestParam String password) {
+		Iterable<AppUser> uList = userRepository.findAll();
+		for (AppUser user : uList) {
+			if (user.getUsername().equals(username)) {
+				return new ResponseEntity(HttpStatus.BAD_REQUEST);
+			}
+		}
+		AppUser u = new AppUser();
     	u.setUsername(username);
-    	u.setPassword(password);
+		u.setPassword(password);
     	userRepository.save(u);
-    	return "Saved";
+    	return new ResponseEntity(HttpStatus.CREATED);
     }
     
     @SuppressWarnings({ "unchecked", "rawtypes" })
