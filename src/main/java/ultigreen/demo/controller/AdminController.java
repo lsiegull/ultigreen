@@ -62,17 +62,19 @@ public class AdminController {
         jdbcTemplate.execute("CREATE TABLE transportation_footprint"
                         +"(id SERIAL, "
                         +"username VARCHAR(255) NOT NULL, "
-                        +"q1 VARCHAR(255) NOT NULL, "
-                        +"q2 VARCHAR(255) NOT NULL, "
-                        +"FOREIGN KEY(username) "
-                        +"REFERENCES users(username))");
+                        +"date DATETIME NOT NULL, "
+                        +"distanceFromWork VARCHAR(255) NOT NULL, "
+                        +"mileageOfCar VARCHAR(255) NOT NULL, "
+                        +"numCarpools VARCHAR(255) NOT NULL, "
+                        +"numTimesDriveToFromWorkWeekly VARCHAR(255) NOT NULL, "
+                        +"numTimesBusToFromWorkWeekly VARCHAR(255) NOT NULL, "
+                        +"numTimesBikeWalkToFromWorkWeekly VARCHAR(255) NOT NULL)");
 
-        //populate table
-        List<Object[]> splitUpTransportationFootprint = Arrays.asList("username 1 1", "admin 2 2", "testUser 3 3").stream()
-                .map(name -> name.split(" "))
-                .collect(Collectors.toList());
-        jdbcTemplate.batchUpdate("INSERT INTO transportation_footprint(username, q1, q2) VALUES (?,?,?)", splitUpTransportationFootprint);
-
+        String sql = "INSERT INTO transportation_footprint(username,date,distanceFromWork,mileageOfCar,numCarpools," +
+                "numTimesDriveToFromWorkWeekly,numTimesBusToFromWorkWeekly,numTimesBikeWalkToFromWorkWeekly) " +
+                "values (?,?,?,?,?,?,?,?)";
+        jdbcTemplate.update(sql,"username","2018-06-19 01:23:45","30","25","1","5","2","0");
+        jdbcTemplate.update(sql,"username","2018-06-18 01:23:45","31","26","2","6","3","1");
         return new ResponseEntity<String>("Completed creating the transportation footprint table", HttpStatus.OK);
     }
 
