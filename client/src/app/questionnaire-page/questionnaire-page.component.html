@@ -1,0 +1,45 @@
+<div class="page">
+  <h2>{{title}} Questions</h2>
+
+  <ul>
+    <li *ngFor="let qItem of questionItems"
+      [class.selected]="qItem===selectedQ">
+      <span class='question'>
+        {{qItem.question}}
+        <br>
+
+        <div>
+          <div *ngIf="qItem.type==='ShortAnswer'">
+            <input type="number"
+              [(ngModel)]="qItem.answer" 
+              placeholder="answer" 
+              ngFocus="onSelect(qItem)">
+          </div>
+
+          <div *ngIf="qItem.type==='Dropdown'">
+              <select [(ngModel)]="qItem.answer">
+                  <option *ngFor="let opt of qItem.options">
+                      {{opt}}
+                  </option>
+              </select>
+          </div>
+
+          <div *ngElse>
+            SOMETHING WENT BADLY WRONG
+          </div>
+        </div>
+
+      </span>
+      <br>
+      <br>
+    </li>
+  </ul>
+
+  <div class="navBtnsDiv">
+    <button type="button" class="btn" id="btnPrev"
+      (click)="ngOnClick(true)">Previous</button>
+    <button type="button" class="btn" id="btnNext"
+      (click)="ngOnClick(false)">Next</button>
+  </div>
+  
+</div>
