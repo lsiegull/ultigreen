@@ -22,7 +22,7 @@ public class AppUser {
     @Column(name= "username")
     private String username;
     
-    @Column(name= "password")
+    @Column(name= "pw")
     private String pw;
     
     public long getId() {
