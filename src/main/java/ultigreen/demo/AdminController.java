@@ -31,8 +31,8 @@ public class AdminController {
 
     @GetMapping(path="/delete-tables")
     public ResponseEntity<String> deleteTables() {
-        jdbcTemplate.execute("DROP TABLE IF EXISTS users");
         jdbcTemplate.execute("DROP TABLE IF EXISTS transportation_footprint");
+        jdbcTemplate.execute("DROP TABLE IF EXISTS users");
         return new ResponseEntity<String>("Deleted all tables", HttpStatus.OK);
     }
 
