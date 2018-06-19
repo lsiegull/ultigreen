@@ -1,5 +1,6 @@
 ﻿import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -18,10 +19,15 @@ import { RegisterComponent } from './register';
 import { FoodComponent } from './food/food.component';
 import { TransportationComponent } from './transportation/transportation.component';
 import { ReusableItemsComponent } from './reusable-items/reusable-items.component';
+import { TransportationQuestionnaireComponent } from './transportation-questionnaire/transportation-questionnaire.component';
+import { QuestionnairePageComponent } from './questionnaire-page/questionnaire-page.component';
+import { ReusableDishwareQuestionnaireComponent } from './reusable-dishware-questionnaire/reusable-dishware-questionnaire.component';
+import { FoodQuestionnaireComponent } from './food-questionnaire/food-questionnaire.component';
 
 @NgModule({
     imports: [
         BrowserModule,
+        FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
         routing
@@ -34,7 +40,11 @@ import { ReusableItemsComponent } from './reusable-items/reusable-items.componen
         RegisterComponent,
         FoodComponent,
         TransportationComponent,
-        ReusableItemsComponent
+        ReusableItemsComponent,
+        TransportationQuestionnaireComponent,
+        QuestionnairePageComponent,
+        ReusableDishwareQuestionnaireComponent,
+        FoodQuestionnaireComponent
     ],
     providers: [
         AuthGuard,
