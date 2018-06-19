@@ -21,12 +21,10 @@ public class FoodService {
     private static final int WEEKS_IN_YR = 52;
 
     public void insertIntoDatabase(Food[] items) {
-        String list = "";
-        for (int i = 0; i < items.length - 1; i++) {
-            list += items[i].getServings();
-        }
-        list += items[items.length - 1];
-        List<Object[]> splitUpFood = Arrays.asList(list).stream().map(str -> str.split(" ")).collect(Collectors.toList());
+        jdbcTemplate.batchUpdate(makeSql(items), splitUpItems(items));
+    }
+
+    private String makeSql(Food[] items) {
         String sql = "INSERT INTO food(";
         for (int i = 0; i < items.length - 1; i++) {
             sql += items[i].getName() + ", ";
@@ -36,7 +34,16 @@ public class FoodService {
             sql += "?, ";
         }
         sql += "?)";
-        jdbcTemplate.batchUpdate(sql, splitUpFood);
+        return sql;
+    }
+
+    private List<Object[]> splitUpItems(Food[] items) {
+        String list = "";
+        for (int i = 0; i < items.length - 1; i++) {
+            list += items[i].getServings();
+        }
+        list += items[items.length - 1];
+        return Arrays.asList(list).stream().map(str -> str.split(" ")).collect(Collectors.toList());
     }
 
     public double calculateCarbonFootprint() {
