@@ -29,20 +29,22 @@ public class FoodService {
         for (int i = 0; i < items.size() - 1; i++) {
             sql += items.get(i).getName() + ", ";
         }
-        sql += items.get(items.size() - 1) + ") values (";
+        sql += items.get(items.size() - 1).getName() + ") values (";
         for (int i = 0; i < items.size() - 1; i++) {
             sql += "?, ";
         }
         sql += "?)";
+        System.out.println(sql);
         return sql;
     }
 
     private List<Object[]> splitUpItems(List<Food> items) {
         String list = "";
         for (int i = 0; i < items.size() - 1; i++) {
-            list += items.get(i).getServings();
+            list += items.get(i).getServings() + " ";
         }
-        list += items.get(items.size() - 1);
+        list += items.get(items.size() - 1).getServings();
+        System.out.println(list);
         return Arrays.asList(list).stream().map(str -> str.split(" ")).collect(Collectors.toList());
     }
 
