@@ -22,13 +22,17 @@ export class TransportationQuestionnaireComponent implements OnInit {
   prevPage = "reusable-dishware-questionnaire";
   nextPage = "questionnaire-results";
   currentUser: User;
-  currentTransportationInfo: TransportationInfo;
   
   constructor(private userService: UserService, private transportationService: TransportationService) { 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.currentTransportationInfo = JSON.parse(JSON.stringify(transportationService.getLatestEntry(this.currentUser)));
-    transportationService.getLatestEntry(this.currentUser).subscribe(a => this.currentTransportationInfo = a);
-    console.log(this.currentTransportationInfo.username);
+    transportationService.getLatestEntry(this.currentUser).subscribe(a => {
+      this.transportationQuestions[0].answer = a.distanceFromWork === null ? "0" : String(a.distanceFromWork);
+      this.transportationQuestions[1].answer = a.mileageOfCar === null ? "0" : String(a.mileageOfCar);
+      this.transportationQuestions[2].answer = a.numCarpools === null ? "1" : String(a.numCarpools);
+      this.transportationQuestions[3].answer = a.numTimesDriveToFromWorkWeekly === null ? "0" : String(a.numTimesDriveToFromWorkWeekly);
+      this.transportationQuestions[4].answer = a.numTimesBusToFromWorkWeekly === null ? "0" : String(a.numTimesBusToFromWorkWeekly);
+      this.transportationQuestions[5].answer = a.numTimesBikeWalkToFromWorkWeekly === null ? "0" : String(a.numTimesBikeWalkToFromWorkWeekly);
+    });
   }
 
   ngOnInit() {
