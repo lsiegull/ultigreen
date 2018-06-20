@@ -2,14 +2,13 @@
     <h1 class="text-center main-header">UltiGreen</h1>
 </div>
 
-<h1 class="home-header">Transportation Options</h1>
-<div>&nbsp;</div>
 <div>
+    <h1 class="home-header">Transportation Options</h1>
     <p>
-        <i>A typical passenger vehicle, with a fuel economy of 22.0 miles per gallon and driving around 11,500 miles per</i> year,
-        emits an average of 4.6 metric tons of carbon dioxide each year.
+        <i>A typical passenger vehicle, with a fuel economy of 22.0 miles per gallon and driving around 11,500 miles per year,
+        emits an average of 10,141 pounds of carbon dioxide each year.</i>
         <br><br>
-        Based on your questionnaire inputs, your vehicle's carbon dioxide output from your work commute is {{transportationFootprint}} metric tons per year.
+        Based on your questionnaire inputs, your vehicle's carbon dioxide output from your work commute is {{transportationFootprint}} pounds per year.
         <br><br>
         These vehicles also produce methane and nitrous oxide which, although are emitted in smaller amounts, have a higher global warming potential than CO<sub>2</sub>.
     </p>
@@ -37,4 +36,7 @@
         </li>
     </ul>
 </div>
-<br><br>
+<br>
+<button [disabled]="loading" [routerLink]="['/home']" class="btn btn-primary login-button-2">Return to Home</button>
+<br>
+<br>
