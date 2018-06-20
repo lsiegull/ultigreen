@@ -50,3 +50,7 @@ button {
 .total {
   font-size: 4em;
 }
+
+#totalUnits {
+  font-size: 0.5em;
+}

@@ -4,8 +4,9 @@
   <ul>
     <li *ngFor="let qItem of questionItems"
       [class.selected]="qItem===selectedQ">
-      <span class='question'>
-        {{qItem.question}}
+      <span class='question angular-with-newlines'>
+          {{qItem.question}}
+        <br>
         <br>
 
         <div>
