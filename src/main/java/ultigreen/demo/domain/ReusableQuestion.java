@@ -87,35 +87,5 @@ public class ReusableQuestion {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-/**	public void setCarbon() {
-		int res = Integer.getInteger(this.response);
-		if (this.type.equals("plastic")) {
-			this.carbon = 1.34 * res;
-		}
-		if (this.type.equals("bagasse")) {
-			this.carbon = 0.124 * res;
-		}
-		if (this.type.equals("styrofoam")) {
-			this.carbon = 0.174 * res;
-		}
-		if (this.type.equals("paper")) {
-			this.carbon = 0.125 * res;
-		}
-	}
-	public void setType() {
-		if (this.question.contains("paper")) {
-			this.type = "paper";
-		}
-		if (this.question.contains("plastic")) {
-			this.type = "plastic";
-		}
-		if (this.question.contains("Bagasse")) {
-			this.type = "bagasse";
-		}
-		if (this.question.contains("styrofoam")) {
-			this.type = "styrofoam";
-		}
-	} */
     
 }
