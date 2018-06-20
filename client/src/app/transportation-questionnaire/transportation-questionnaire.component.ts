@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionItem, ShortAnswer, Dropdown } from '../questionItem';
+import { User, TransportationInfo } from '../models';
+import { UserService, TransportationService } from '../services';
 
 @Component({
   selector: 'app-transportation-questionnaire',
@@ -19,10 +21,18 @@ export class TransportationQuestionnaireComponent implements OnInit {
   selectedQ: QuestionItem;
   prevPage = "reusable-dishware-questionnaire";
   nextPage = "questionnaire-results";
+  currentUser: User;
+  currentTransportationInfo: TransportationInfo;
   
-  constructor() { }
+  constructor(private userService: UserService, private transportationService: TransportationService) { 
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.currentTransportationInfo = JSON.parse(JSON.stringify(transportationService.getLatestEntry(this.currentUser)));
+    transportationService.getLatestEntry(this.currentUser).subscribe(a => this.currentTransportationInfo = a);
+    console.log(this.currentTransportationInfo.username);
+  }
 
   ngOnInit() {
+    //alert(this.currentUser + "hi" + this.currentTransportationInfo.username);
   }
 
 }

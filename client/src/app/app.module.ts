@@ -12,7 +12,7 @@ import { routing }        from './app.routing';
 import { AlertComponent } from './directives';
 import { AuthGuard } from './guards';
 import { JwtInterceptor } from './helpers';
-import { AlertService, AuthenticationService, UserService } from './services';
+import { AlertService, AuthenticationService, UserService, TransportationService } from './services';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
@@ -53,6 +53,7 @@ import { QuestionnaireResultsComponent } from './questionnaire-results/questionn
         AlertService,
         AuthenticationService,
         UserService,
+        TransportationService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,

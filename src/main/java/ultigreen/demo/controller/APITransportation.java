@@ -47,10 +47,16 @@ public class APITransportation {
 
     @GetMapping(path="/getLatest/{username}")
     public ResponseEntity<TransportationEntry> getLatestDataForUser(@PathVariable("username") String username) {
+        /*
         if (username == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        return transportationService.getLatestDataForUser(username);
+        return transportationService.getLatestDataForUser(username); */
+        TransportationEntry dummy = new TransportationEntry();
+        dummy.setUsername("user");
+        dummy.setDistanceFromWork("3");
+        dummy.set
+        return new ResponseEntity<TransportationEntry>(dummy, HttpStatus.OK);
     }
 
     @GetMapping(path="/getTransportationCO2/{username}")
