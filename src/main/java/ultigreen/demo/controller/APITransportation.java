@@ -30,9 +30,17 @@ public class APITransportation {
     }
 
     @PostMapping(path="/addEntry")
-    public ResponseEntity<String> addEntryForUser(@RequestBody TransportationEntry entry){
+    public ResponseEntity<String> addEntry(@RequestBody TransportationEntry entry){
         if (entry != null) {
-            return transportationService.addEntryForUser(entry);
+            return transportationService.addEntry(entry);
+        }
+        return new ResponseEntity<>("Error creating entry", HttpStatus.BAD_REQUEST);
+    }
+
+    @PostMapping(path="/updateEntry")
+    public ResponseEntity<String> updatEntry(@RequestBody TransportationEntry entry){
+        if (entry != null) {
+            return transportationService.updateEntry(entry);
         }
         return new ResponseEntity<>("Error creating entry", HttpStatus.BAD_REQUEST);
     }
@@ -43,6 +51,14 @@ public class APITransportation {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         return transportationService.getLatestDataForUser(username);
+    }
+
+    @GetMapping(path="/getTransportationCO2/{username}")
+    public ResponseEntity<String> getTransportationCO2TonsPerYear(@PathVariable("username") String username) {
+        if (username != null) {
+            return transportationService.getTransportationCO2TonsPerYear(username);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
 }

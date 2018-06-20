@@ -1,6 +1,6 @@
 /* QuestionnaireComponent's private CSS styles */
 .selected {
-    background-color: #CFD8DC !important;
+    background-color: #E9ECEF !important;
     color: white;
   }
   .page {
@@ -16,7 +16,7 @@
   }
 
   button {
-    background-color: #28A536;
+    background-color: #3BA94C;
     color: #FFFFFF;
     width: 8em;
   }
