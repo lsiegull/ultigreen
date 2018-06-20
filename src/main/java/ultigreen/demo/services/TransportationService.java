@@ -1,4 +1,4 @@
-package ultigreen.demo;
+package ultigreen.demo.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,12 +70,12 @@ public class TransportationService {
         		double yearlyTrips = 52 * Integer.parseInt(bussesToWork) * singleTrip;
         		result += yearlyTrips;
         }
-        return new ResponseEntity(result, HttpStatus.OK);
+        return new ResponseEntity((int)result, HttpStatus.OK);
     }
 
     public ResponseEntity<TransportationEntry> getLatestDataForUser(String username) {
         List<TransportationEntry> results = getAllEntriesForUser(username);
-        return new ResponseEntity<TransportationEntry>(results.get(0), HttpStatus.OK);
+        return new ResponseEntity<TransportationEntry>(results.get(results.size() - 1), HttpStatus.OK);
     }
 
     private List<TransportationEntry> getAllEntriesForUser(String username) {

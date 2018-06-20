@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ultigreen.demo.TransportationService;
+import ultigreen.demo.services.TransportationService;
 import ultigreen.demo.domain.TransportationEntry;
 
 import javax.persistence.EntityManager;

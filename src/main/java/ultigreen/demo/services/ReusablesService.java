@@ -1,4 +1,4 @@
-package ultigreen.demo;
+package ultigreen.demo.services;
 
 import java.util.List;
 
