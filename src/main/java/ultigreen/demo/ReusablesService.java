@@ -35,7 +35,7 @@ public class ReusablesService {
     
     @SuppressWarnings("rawtypes")
 	public ResponseEntity makeUpdatedData(ReusableQuestion question) {
-    		String sql ="UPDATE reusables_footprint SET plastic=?,paper=?,styrofoam=?,bagasse=? WHERE date=? and username=?";
+    		String sql ="UPDATE reusables_footprint SET plastic=?,paper=?,styrofoam=?,bagasse=? WHERE date=? and user=?";
     		jdbcTemplate.update(sql, question.getPlastic(), question.getPaper(), question.getStyrofoam(), question.getBagasse(),question.getDate(),question.getUser() );
     		return new ResponseEntity(HttpStatus.OK);
     }
@@ -60,6 +60,6 @@ public class ReusablesService {
 		String sql = "SELECT * FROM reusables_footprint tf WHERE tf.user = ? ";
 		RowMapper<ReusableQuestion> mapper = new BeanPropertyRowMapper<ReusableQuestion>(ReusableQuestion.class);
 		List<ReusableQuestion> ans = jdbcTemplate.query(sql, mapper, username);
-		return ans.get(0);
+		return ans.get(ans.size()-1);
 	}
 }

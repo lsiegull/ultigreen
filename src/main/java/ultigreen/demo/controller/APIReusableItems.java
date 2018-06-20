@@ -45,7 +45,7 @@ public class APIReusableItems {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	@PutMapping(path= "/updateQuestion")
+	@PutMapping(path= "/")
 	public ResponseEntity updateQuestions(@RequestBody ReusableQuestion question) {
 		if (question != null) {
 			return reusablesService.makeUpdatedData(question);
@@ -63,9 +63,12 @@ public class APIReusableItems {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	@PutMapping(path="/makeUpdates/{username}")
-	public ResponseEntity updateUserData(@PathVariable("username") String username, @RequestBody ReusableQuestion question) {
-		return null;
+	@GetMapping(path="/reusablesCarbon/{username}")
+	public ResponseEntity getCarbon(@PathVariable("username") String username) {
+		if (username != null) {
+			return reusablesService.calculateReusablesFootprint(username);
+		}
+		return new ResponseEntity(HttpStatus.BAD_REQUEST);
 	}
 	
 	
