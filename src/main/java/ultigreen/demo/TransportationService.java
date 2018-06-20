@@ -19,6 +19,7 @@ public class TransportationService {
 	private static final double MPG_DIVIDEND = 6760.0;
 	private static final double BUS_MULTIPLIER = 0.069;
 	private static final double POUNDS_CONVERSION = 0.00220462;
+	private static final double MILES_CONVERSION = 1.60934;
     private static final Logger log = LoggerFactory.getLogger(TransportationService.class);
 
     @Autowired
@@ -54,7 +55,7 @@ public class TransportationService {
         String mpg = entry.getMileageOfCar();
         //this is assuming that distance is put into km-- not sure if we're doing that or miles so change appropriately if it's miles
         if ( drivesToWork != null && mpg != null && Integer.parseInt(mpg) != 0) {
-        		double singleTrip = POUNDS_CONVERSION * Integer.parseInt(entry.getDistanceFromWork()) * MPG_DIVIDEND/Integer.parseInt(mpg);
+        		double singleTrip = POUNDS_CONVERSION * Integer.parseInt(entry.getDistanceFromWork()) * MILES_CONVERSION * MPG_DIVIDEND/Integer.parseInt(mpg);
         		double yearlyTrips = 52 * Integer.parseInt(drivesToWork) * singleTrip;
         		String numCarpools = entry.getNumCarpools();
         		if (numCarpools != null && Integer.parseInt(numCarpools) != 0) {
@@ -65,7 +66,7 @@ public class TransportationService {
         }
         String bussesToWork = entry.getNumTimesBusToFromWorkWeekly();
         if (bussesToWork != null ) {
-        		double singleTrip = 1000 * POUNDS_CONVERSION * Integer.parseInt(entry.getDistanceFromWork()) * BUS_MULTIPLIER;
+        		double singleTrip = 1000 * POUNDS_CONVERSION * Integer.parseInt(entry.getDistanceFromWork()) * MILES_CONVERSION * BUS_MULTIPLIER;
         		double yearlyTrips = 52 * Integer.parseInt(bussesToWork) * singleTrip;
         		result += yearlyTrips;
         }
