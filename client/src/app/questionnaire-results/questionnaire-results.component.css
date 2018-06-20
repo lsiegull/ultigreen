@@ -1,0 +1,50 @@
+/* QuestionnaireResult's private CSS styles */
+.selected {
+    background-color: #E9ECEF !important;
+    color: white;
+  }
+  .page {
+    margin: 0 0 2em 0;
+    padding: 5%;
+  }
+
+  ul{
+    list-style-type: none;
+    text-align: left;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  button {
+    background-color: #3BA94C;
+    color: #FFFFFF;
+    width: 8em;
+  }
+
+  .navBtnsDiv {
+    width: auto;
+  }
+  #btnPrev {
+    float: left;
+  }
+
+  #btnNext{
+    float: right;
+  }
+
+  #resultsTable {
+    margin: 5%;
+  }
+
+  .row {
+    padding: 3%;
+  }
+  
+  .column {
+    padding: 3%;
+  }
+
+  .btn {
+    float: right;
+    width: 15em;
+  }
