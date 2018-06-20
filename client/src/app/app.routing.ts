@@ -21,7 +21,6 @@ const appRoutes: Routes = [
     { path: 'reusable-dishware-questionnaire', component: ReusableDishwareQuestionnaireComponent },
     { path: 'transportation-questionnaire', component: TransportationQuestionnaireComponent },
     { path: 'questionnaire-results', component: QuestionnaireResultsComponent },
-   // { path: ''}
 
     { path: 'food', component: FoodComponent },
     { path: 'transportation', component: TransportationComponent },
