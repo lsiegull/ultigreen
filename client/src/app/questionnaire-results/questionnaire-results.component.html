@@ -1,0 +1,41 @@
+<div class="page">
+  <h2>Here's your carbon footprint results!</h2>
+
+  <div id="resultsTable">
+    <div class="flex-row">
+        <div class="col">
+            <h3>Food</h3>
+        </div>
+        <div class="col">
+            <h3 class="number">{{foodFootprint}}</h3>
+        </div>
+    </div>
+    <div class="flex-row">
+        <div class="col">
+            <h3>Reusable Dishware</h3>
+        </div>
+        <div class="col">
+            <h3 class="number">{{reusableDishwareFootprint}}</h3>
+        </div>
+    </div>
+    <div class="flex-row">
+        <div class="col">
+            <h3>Transportation</h3>
+        </div>
+        <div class="col">
+            <h3 class="number">{{transportationFootprint}}</h3>
+        </div>
+    </div>
+    <div class="flex-row">
+        <div class="col">
+            <h3 class="total">Total</h3>
+        </div>
+        <div class="col">
+            <h3 class="total number">{{totalFootprint}}</h3>
+        </div>
+    </div>
+  </div>
+
+  <a routerLink="/"><button class="btn">Return to UltiGreen Home</button></a>
+  
+</div>
