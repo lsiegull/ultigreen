@@ -20,16 +20,16 @@ public class FoodService {
     private static final int DAYS_IN_WEEK = 7;
     private static final int WEEKS_IN_YR = 52;
 
-    public void insertIntoDatabase(List<Food> items) {
-        jdbcTemplate.batchUpdate(makeSql(items), splitUpItems(items));
+    public void insertIntoDatabase(String username, List<Food> items) {
+        jdbcTemplate.batchUpdate(makeSql(items), splitUpItems(username, items));
     }
 
     private String makeSql(List<Food> items) {
-        String sql = "INSERT INTO food(";
+        String sql = "INSERT INTO dining_footprint(username, ";
         for (int i = 0; i < items.size() - 1; i++) {
             sql += items.get(i).getName() + ", ";
         }
-        sql += items.get(items.size() - 1).getName() + ") values (";
+        sql += items.get(items.size() - 1).getName() + ") values (?, ";
         for (int i = 0; i < items.size() - 1; i++) {
             sql += "?, ";
         }
@@ -38,8 +38,8 @@ public class FoodService {
         return sql;
     }
 
-    private List<Object[]> splitUpItems(List<Food> items) {
-        String list = "";
+    private List<Object[]> splitUpItems(String username, List<Food> items) {
+        String list = username + " ";
         for (int i = 0; i < items.size() - 1; i++) {
             list += items.get(i).getServings() + " ";
         }

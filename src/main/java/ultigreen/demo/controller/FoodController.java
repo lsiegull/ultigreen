@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -26,7 +27,7 @@ public class FoodController {
 
     @PostMapping(path="/create")
     public ResponseEntity<String> create(@RequestBody FoodInfoResponse foodItems) {
-        foodService.insertIntoDatabase(foodItems.getFoodItems());
+        foodService.insertIntoDatabase(foodItems.getUsername(), foodItems.getFoodItems());
         return new ResponseEntity<>("Added food items to database", HttpStatus.CREATED);
     }
 
