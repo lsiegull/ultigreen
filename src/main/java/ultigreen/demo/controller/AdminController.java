@@ -62,7 +62,7 @@ public class AdminController {
         jdbcTemplate.execute("CREATE TABLE transportation_footprint"
                         +"(id SERIAL, "
                         +"username VARCHAR(255) NOT NULL, "
-                        +"date DATETIME NOT NULL, "
+                        +"date DATE NOT NULL, "
                         +"distanceFromWork VARCHAR(255) NOT NULL, "
                         +"mileageOfCar VARCHAR(255) NOT NULL, "
                         +"numCarpools VARCHAR(255) NOT NULL, "
@@ -73,8 +73,8 @@ public class AdminController {
         String sql = "INSERT INTO transportation_footprint(username,date,distanceFromWork,mileageOfCar,numCarpools," +
                 "numTimesDriveToFromWorkWeekly,numTimesBusToFromWorkWeekly,numTimesBikeWalkToFromWorkWeekly) " +
                 "values (?,?,?,?,?,?,?,?)";
-        jdbcTemplate.update(sql,"username","2018-06-18 01:23:45","31","26","2","6","3","1");
-        jdbcTemplate.update(sql,"username","2018-06-19 01:23:45","30","25","1","5","2","0");
+        jdbcTemplate.update(sql,"username","2018-06-18","31","26","2","6","3","1");
+        jdbcTemplate.update(sql,"username","2018-06-19","30","25","1","5","2","0");
         return new ResponseEntity<String>("Completed creating the transportation footprint table", HttpStatus.OK);
     }
 
