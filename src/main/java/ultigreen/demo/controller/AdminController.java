@@ -94,7 +94,7 @@ public class AdminController {
     			+"paper VARCHAR(255) NOT NULL, "
     			+"styrofoam VARCHAR(255) NOT NULL, "
     			+"bagasse VARCHAR(255) NOT NULL, "
-    			+ "date DATETIME NOT NULL)"
+    			+ "date DATE NOT NULL)"
     			 );
     	String cols = "INSERT INTO reusables_footprint(user,plastic,paper,styrofoam,bagasse,date)" +
                 "values (?,?,?,?,?,?)";
