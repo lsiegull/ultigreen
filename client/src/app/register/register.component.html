@@ -1,0 +1,32 @@
+﻿<h1 class="text-center login-header">UltiGreen</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="username" class="login-text">Username</label>
+        <input type="text" formControlName="username" class="form-control login-element" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required" class="login-text">Username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="login-text">Password</label>
+        <input type="password" formControlName="password" class="form-control login-element" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required" class="login-text">Password is required</div>
+            <div *ngIf="f.password.errors.minlength" class="login-text">Password must be at least 6 characters</div>
+        </div>
+    </div>
+    <div class="form-group">
+            <label for="verifypassword" class="login-text">Verify Password</label>
+            <input type="password" formControlName="passverify" class="form-control login-element" [ngClass]="{ 'is-invalid': submitted && f.passverify.errors }" />
+            <div *ngIf="submitted && f.passverify.errors" class="invalid-feedback">
+                <div *ngIf="f.passverify.errors.required" class="login-text">Password verification is required</div>
+                <div *ngIf="registerForm.controls['passverify'].errors?.matchOther" class="login-text">Passwords must match</div> <!--doesn't work yet-->
+            </div>
+    </div>
+    <div class="form-group login-element">
+        <button [disabled]="loading" class="btn btn-primary login-button-2">Register</button>
+        <span *ngIf="loading">&nbsp;&nbsp;&nbsp;</span>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/login']" class="btn btn-link login-button-1">Cancel</a>
+    </div>
+</form>
