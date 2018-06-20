@@ -28,7 +28,7 @@ export class TransportationQuestionnaireComponent implements OnInit {
     transportationService.getLatestEntry(this.currentUser).subscribe(a => {
       this.transportationQuestions[0].answer = a.distanceFromWork === null ? "0" : String(a.distanceFromWork);
       this.transportationQuestions[1].answer = a.mileageOfCar === null ? "0" : String(a.mileageOfCar);
-      this.transportationQuestions[2].answer = a.numCarpools === null ? "1" : String(a.numCarpools);
+      this.transportationQuestions[2].answer = a.numCarpools === null ? "0" : String(a.numCarpools);
       this.transportationQuestions[3].answer = a.numTimesDriveToFromWorkWeekly === null ? "0" : String(a.numTimesDriveToFromWorkWeekly);
       this.transportationQuestions[4].answer = a.numTimesBusToFromWorkWeekly === null ? "0" : String(a.numTimesBusToFromWorkWeekly);
       this.transportationQuestions[5].answer = a.numTimesBikeWalkToFromWorkWeekly === null ? "0" : String(a.numTimesBikeWalkToFromWorkWeekly);
@@ -36,7 +36,6 @@ export class TransportationQuestionnaireComponent implements OnInit {
   }
 
   ngOnInit() {
-    //alert(this.currentUser + "hi" + this.currentTransportationInfo.username);
   }
 
 }
