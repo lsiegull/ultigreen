@@ -84,11 +84,22 @@ public class AdminController {
         return new ResponseEntity<String>("Completed creating the dining footprint table", HttpStatus.OK);
     }
 
-    @GetMapping(path="/generate/tableware-footprint-table")
-    public ResponseEntity<String> generateTablewareFootprintTable() {
-    	jdbcTemplate.execute("DROP TABLE IF EXISTS tableware_footprint");
-    	
-        return new ResponseEntity<String>("Completed creating the tableware footprint table", HttpStatus.OK);
+    @GetMapping(path="/generate/reusables-footprint-table")
+    public ResponseEntity<String> generateReusablesFootprintTable() {
+    	jdbcTemplate.execute("DROP TABLE IF EXISTS reusables_footprint");
+    	jdbcTemplate.execute("CREATE TABLE reusables_footprint"
+    			+"(id SERIAL, "
+    			+"user VARCHAR(255) NOT NULL, "
+    			+"plastic VARCHAR(255) NOT NULL, "
+    			+"paper VARCHAR(255) NOT NULL, "
+    			+"styrofoam VARCHAR(255) NOT NULL, "
+    			+"bagasse VARCHAR(255) NOT NULL, "
+    			+ "date DATETIME NOT NULL)"
+    			 );
+    	String cols = "INSERT INTO reusables_footprint(user,plastic,paper,styrofoam,bagasse,date)" +
+                "values (?,?,?,?,?,?)";
+    	jdbcTemplate.update(cols, "username", "2", "4", "5", "8", "2018-06-19 01:23:45");
+        return new ResponseEntity<String>("Completed creating the reusables footprint table\n", HttpStatus.OK);
     }
 
 }
