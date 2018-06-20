@@ -49,10 +49,10 @@ public class ReusablesService {
 		double BAGASSE = 0.124;
 		double STYROFOAM = 0.174;
 		ReusableQuestion question = getRecentData(username);
-		res += Integer.getInteger(question.getPlastic()) * WEEKS * PLASTIC;
-		res += Integer.getInteger(question.getPaper()) * WEEKS * PAPER;
-		res += Integer.getInteger(question.getBagasse()) * WEEKS * BAGASSE;
-		res += Integer.getInteger(question.getStyrofoam()) * WEEKS * STYROFOAM;
+		res += Integer.parseInt(question.getPlastic()) * WEEKS * PLASTIC;
+		res += Integer.parseInt(question.getPaper()) * WEEKS * PAPER;
+		res += Integer.parseInt(question.getBagasse()) * WEEKS * BAGASSE;
+		res += Integer.parseInt(question.getStyrofoam()) * WEEKS * STYROFOAM;
 		return new ResponseEntity(res, HttpStatus.OK);
 	}
 	
