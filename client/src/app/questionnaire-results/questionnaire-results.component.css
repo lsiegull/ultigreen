@@ -1,50 +1,52 @@
 /* QuestionnaireResult's private CSS styles */
-.selected {
-    background-color: #E9ECEF !important;
-    color: white;
-  }
-  .page {
-    margin: 0 0 2em 0;
-    padding: 5%;
-  }
+.page {
+  margin: 0 0 2em 0;
+  padding: 5%;
+}
 
-  ul{
-    list-style-type: none;
-    text-align: left;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
+h2 {
+  font-size: 4em;
+}
 
-  button {
-    background-color: #3BA94C;
-    color: #FFFFFF;
-    width: 8em;
-  }
+button {
+  background-color: #3BA94C;
+  color: #FFFFFF;
+  width: 6em;
+}
 
-  .navBtnsDiv {
-    width: auto;
-  }
-  #btnPrev {
-    float: left;
-  }
+.navBtnsDiv {
+  width: auto;
+}
+#btnPrev {
+  float: left;
+}
 
-  #btnNext{
-    float: right;
-  }
+#btnNext{
+  float: right;
+}
 
-  #resultsTable {
-    margin: 5%;
-  }
+#resultsTable {
+  margin: 5%;
+}
 
-  .row {
-    padding: 3%;
-  }
-  
-  .column {
-    padding: 3%;
-  }
+.btn {
+  float: right;
+  width: 15em;
+}
 
-  .btn {
-    float: right;
-    width: 15em;
-  }
+.flex-row {
+  display: flex;
+  margin-top: 5%;
+}
+
+.col {
+  flex: 1;
+}
+
+.number {
+  text-align: right;
+}
+
+.total {
+  font-size: 4em;
+}
