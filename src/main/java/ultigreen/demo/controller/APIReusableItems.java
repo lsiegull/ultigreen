@@ -45,7 +45,7 @@ public class APIReusableItems {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	@PostMapping(path= "/updateQuestion")
+	@PutMapping(path= "/updateQuestion")
 	public ResponseEntity updateQuestions(@RequestBody ReusableQuestion question) {
 		if (question != null) {
 			return reusablesService.makeUpdatedData(question);
