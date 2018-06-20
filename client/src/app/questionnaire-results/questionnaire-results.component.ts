@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./questionnaire-results.component.css']
 })
 export class QuestionnaireResultsComponent implements OnInit {
-  foodFootprint: string = "132";
-  reusableDishwareFootprint: string = "61";
-  transportationFootprint: string = "83";
+  foodFootprint: string = "5200";
+  reusableDishwareFootprint: string = "3400";
+  transportationFootprint: string = "8600";
   totalFootprint: string = String(Number(this.foodFootprint) + Number(this.reusableDishwareFootprint) + Number(this.transportationFootprint));
 
   constructor() { }

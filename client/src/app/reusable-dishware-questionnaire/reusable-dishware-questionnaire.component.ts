@@ -11,7 +11,7 @@ export class ReusableDishwareQuestionnaireComponent implements OnInit {
   reusableQuestions: QuestionItem[] = [
     <ShortAnswer> {id: 1, question: "How many single-use styrofoam products do you use per day at work?", answer: "0", type: "ShortAnswer"},
     <ShortAnswer> {id: 2, question: "How many single-use plastic products do you use per day at work?", answer: "0", type: "ShortAnswer"},
-    <ShortAnswer> {id: 3, question: "How many single-use Bagasse products do you use per day at work?", answer: "0", type: "ShortAnswer"},
+    <ShortAnswer> {id: 3, question: "How many single-use bagasse (plant fiber from sugarcane or sorghum) products do you use per day at work?", answer: "0", type: "ShortAnswer"},
     <ShortAnswer> {id: 4, question: "How many single-use non-recycled paper products do you use per day at work?", answer: "0", type: "ShortAnswer"},
     <ShortAnswer> {id: 5, question: "How many single-use recycled paper products do you use per day at work?", answer: "0", type: "ShortAnswer"}
   ];

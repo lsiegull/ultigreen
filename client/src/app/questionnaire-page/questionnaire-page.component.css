@@ -8,6 +8,11 @@
     padding: 5%;
   }
 
+  .angular-with-newlines {
+    white-space: pre;
+  }
+  
+
   ul{
     list-style-type: none;
     text-align: left;
