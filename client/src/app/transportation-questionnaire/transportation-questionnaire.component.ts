@@ -17,6 +17,8 @@ export class TransportationQuestionnaireComponent implements OnInit {
     <ShortAnswer> {id: 6, question: "How many times/ week do you bike or walk to and from work?", answer: "", type: "ShortAnswer"}
   ];
   selectedQ: QuestionItem;
+  prevPage = "reusable-dishware-questionnaire";
+  nextPage = "";
   
   constructor() { }
 
