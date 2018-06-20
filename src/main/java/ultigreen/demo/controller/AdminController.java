@@ -99,11 +99,11 @@ public class AdminController {
                         +"vegetables DECIMAL(18,4) NOT NULL, "
                         +"milk DECIMAL(18,4) NOT NULL, "
                         +"fruit DECIMAL(18,4) NOT NULL, "
-                        +"date DATETIME NOT NULL)"
+                        +"date DATE NOT NULL)"
                         );
         String cols = "INSERT INTO dining_footprint(username,lamb,beef,cheese,pork,turkey,chicken,tuna,eggs,potatoes,rice,nuts,beans,tofu,milk,vegetables,fruit,date)"
                 + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        jdbcTemplate.update(cols, "username", 0, 1, 2, 1, 0, 1, 0, 2, 1, 2, 3, 4, 0, 2, 5, 2, "2018-06-19 01:23:45");
+        jdbcTemplate.update(cols, "username", 0, 1, 2, 1, 0, 1, 0, 2, 1, 2, 3, 4, 0, 2, 5, 2, "2018-06-19");
         return new ResponseEntity<String>("Completed creating the dining footprint table", HttpStatus.OK);
     }
 
