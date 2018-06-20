@@ -80,7 +80,32 @@ public class AdminController {
 
     @GetMapping(path="/generate/dining-footprint-table")
     public ResponseEntity<String> generateDiningFootprintTable() {
-        //TODO
+        //create table
+        jdbcTemplate.execute("DROP TABLE IF EXISTS dining_footprint");
+        jdbcTemplate.execute("CREATE TABLE dining_footprint"
+                        +"(id SERIAL, "
+                        +"username VARCHAR(255) NOT NULL, "
+                        +"lamb DECIMAL(18,4) NOT NULL, "
+                        +"beef DECIMAL(18,4) NOT NULL, "
+                        +"cheese DECIMAL(18,4) NOT NULL, "
+                        +"pork DECIMAL(18,4) NOT NULL, "
+                        +"turkey DECIMAL(18,4) NOT NULL, "
+                        +"chicken DECIMAL(18,4) NOT NULL, "
+                        +"tuna DECIMAL(18,4) NOT NULL, "
+                        +"eggs DECIMAL(18,4) NOT NULL, "
+                        +"potatoes DECIMAL(18,4) NOT NULL, "
+                        +"rice DECIMAL(18,4) NOT NULL, "
+                        +"nuts DECIMAL(18,4) NOT NULL, "
+                        +"beans DECIMAL(18,4) NOT NULL, "
+                        +"tofu DECIMAL(18,4) NOT NULL, "
+                        +"vegetables DECIMAL(18,4) NOT NULL, "
+                        +"milk DECIMAL(18,4) NOT NULL, "
+                        +"fruit DECIMAL(18,4) NOT NULL, "
+                        +"date DATE NOT NULL)"
+                        );
+        String cols = "INSERT INTO dining_footprint(username,lamb,beef,cheese,pork,turkey,chicken,tuna,eggs,potatoes,rice,nuts,beans,tofu,milk,vegetables,fruit,date)"
+                + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        jdbcTemplate.update(cols, "username", 0, 1, 2, 1, 0, 1, 0, 2, 1, 2, 3, 4, 0, 2, 5, 2, "2018-06-19");
         return new ResponseEntity<String>("Completed creating the dining footprint table", HttpStatus.OK);
     }
 
