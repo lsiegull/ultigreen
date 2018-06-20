@@ -123,7 +123,7 @@ public class AdminController {
     			 );
     	String cols = "INSERT INTO reusables_footprint(user,plastic,paper,styrofoam,bagasse,date)" +
                 "values (?,?,?,?,?,?)";
-    	jdbcTemplate.update(cols, "username", "2", "4", "5", "8", "2018-06-19 01:23:45");
+    	jdbcTemplate.update(cols, "username", "2", "4", "5", "8", "2018-06-19");
         return new ResponseEntity<String>("Completed creating the reusables footprint table\n", HttpStatus.OK);
     }
 
