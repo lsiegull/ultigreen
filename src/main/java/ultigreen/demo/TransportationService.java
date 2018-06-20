@@ -16,6 +16,9 @@ import java.util.List;
 @Service
 public class TransportationService {
 
+	private static final double MPG_DIVIDEND = 6760.0;
+	private static final double BUS_MULTIPLIER = 0.069;
+	private static final double POUNDS_CONVERSION = 0.00220462;
     private static final Logger log = LoggerFactory.getLogger(TransportationService.class);
 
     @Autowired
@@ -42,13 +45,31 @@ public class TransportationService {
         return new ResponseEntity<>("Updated transportation entry", HttpStatus.OK);
     }
 
-    public ResponseEntity<String> getTransportationCO2TonsPerYear(String username) {
-        String result = "";
-        double distToWork = 2.0;
-        double milesPerGallon = 25.0;
-        double gallons = (520 * distToWork) / milesPerGallon;
-        double resultNum = 19.6 * gallons / 2204.62;
-        return new ResponseEntity<>("dummyCO2Tons", HttpStatus.OK);
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public ResponseEntity getTransportationCO2TonsPerYear(String username) {
+        double result = 0.0;
+        List<TransportationEntry> listAll = getAllEntriesForUser(username);
+        TransportationEntry entry = listAll.get(listAll.size() - 1);
+        String drivesToWork = entry.getNumTimesDriveToFromWorkWeekly();
+        String mpg = entry.getMileageOfCar();
+        //this is assuming that distance is put into km-- not sure if we're doing that or miles so change appropriately if it's miles
+        if ( drivesToWork != null && mpg != null && Integer.parseInt(mpg) != 0) {
+        		double singleTrip = POUNDS_CONVERSION * Integer.parseInt(entry.getDistanceFromWork()) * MPG_DIVIDEND/Integer.parseInt(mpg);
+        		double yearlyTrips = 52 * Integer.parseInt(drivesToWork) * singleTrip;
+        		String numCarpools = entry.getNumCarpools();
+        		if (numCarpools != null && Integer.parseInt(numCarpools) != 0) {
+        			result += yearlyTrips/Integer.parseInt(numCarpools);
+        		} else {
+        			result += yearlyTrips;
+        		}
+        }
+        String bussesToWork = entry.getNumTimesBusToFromWorkWeekly();
+        if (bussesToWork != null ) {
+        		double singleTrip = 1000 * POUNDS_CONVERSION * Integer.parseInt(entry.getDistanceFromWork()) * BUS_MULTIPLIER;
+        		double yearlyTrips = 52 * Integer.parseInt(bussesToWork) * singleTrip;
+        		result += yearlyTrips;
+        }
+        return new ResponseEntity(result, HttpStatus.OK);
     }
 
     public ResponseEntity<TransportationEntry> getLatestDataForUser(String username) {
