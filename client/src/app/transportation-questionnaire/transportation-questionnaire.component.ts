@@ -18,7 +18,7 @@ export class TransportationQuestionnaireComponent implements OnInit {
   ];
   selectedQ: QuestionItem;
   prevPage = "reusable-dishware-questionnaire";
-  nextPage = "";
+  nextPage = "questionnaire-results";
   
   constructor() { }
 

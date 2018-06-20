@@ -24,6 +24,7 @@ import { QuestionnairePageComponent } from './questionnaire-page/questionnaire-p
 import { ReusableDishwareQuestionnaireComponent } from './reusable-dishware-questionnaire/reusable-dishware-questionnaire.component';
 import { FoodQuestionnaireComponent } from './food-questionnaire/food-questionnaire.component';
 import { TransportationService } from './services/transportation.service';
+import { QuestionnaireResultsComponent } from './questionnaire-results/questionnaire-results.component';
 
 @NgModule({
     imports: [
@@ -45,7 +46,8 @@ import { TransportationService } from './services/transportation.service';
         TransportationQuestionnaireComponent,
         QuestionnairePageComponent,
         ReusableDishwareQuestionnaireComponent,
-        FoodQuestionnaireComponent
+        FoodQuestionnaireComponent,
+        QuestionnaireResultsComponent
     ],
     providers: [
         AuthGuard,
