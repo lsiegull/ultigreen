@@ -13,12 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import ultigreen.demo.services.FoodService;
-import ultigreen.demo.domain.FoodInfoResponse;
 import ultigreen.demo.domain.FoodEntry;
-import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200")
 @RequestMapping(path="/food")
 public class FoodController {
 
@@ -28,27 +26,34 @@ public class FoodController {
     public FoodController() {}
 
     @PostMapping(path="/create")
-    public ResponseEntity<String> create(@RequestBody FoodInfoResponse foodItems) {
-        foodService.insertIntoDatabase(foodItems.getUsername(), foodItems.getFoodItems());
-        return new ResponseEntity<>("Added food items to database", HttpStatus.CREATED);
+    public ResponseEntity<String> create(@RequestBody FoodEntry entry) {
+        if (entry == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return foodService.insert(entry);
     }
 
     @PutMapping(path="/update")
-    public ResponseEntity<String> update(@RequestBody FoodInfoResponse foodItems) {
-        System.out.println(foodItems);
-        foodService.updateDatabase(foodItems.getUsername(), foodItems.getFoodItems());
-        return new ResponseEntity<>("Updated food items in database", HttpStatus.OK);
+    public ResponseEntity<String> update(@RequestBody FoodEntry entry) {
+        if (entry == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return foodService.update(entry);
     }
 
     @GetMapping(path="/getAll")
-    public ResponseEntity<List<FoodEntry>> getAll(@RequestParam String username) {
-        List<FoodEntry> food = foodService.getAllFromDatabase(username);
-        System.out.println(food);
-        return new ResponseEntity<>(food, HttpStatus.OK);
+    public ResponseEntity<FoodEntry> getAll(@RequestParam String username) {
+        if (username == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return foodService.getAll(username);
     }
 
     @GetMapping(path="/calculate")
-    public ResponseEntity<Double> calculate() {
-        return new ResponseEntity<Double>(foodService.calculateCarbonFootprint(), HttpStatus.OK);
+    public ResponseEntity<Double> calculate(@RequestParam String username) {
+        if (username == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return foodService.calculate(username);
     }
 }
