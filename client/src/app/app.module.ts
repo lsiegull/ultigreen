@@ -23,6 +23,7 @@ import { TransportationQuestionnaireComponent } from './transportation-questionn
 import { QuestionnairePageComponent } from './questionnaire-page/questionnaire-page.component';
 import { ReusableDishwareQuestionnaireComponent } from './reusable-dishware-questionnaire/reusable-dishware-questionnaire.component';
 import { FoodQuestionnaireComponent } from './food-questionnaire/food-questionnaire.component';
+import { TransportationService } from './services/transportation.service';
 
 @NgModule({
     imports: [
@@ -51,6 +52,7 @@ import { FoodQuestionnaireComponent } from './food-questionnaire/food-questionna
         AlertService,
         AuthenticationService,
         UserService,
+        TransportationService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,

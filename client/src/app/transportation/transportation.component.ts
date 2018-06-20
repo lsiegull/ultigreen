@@ -23,5 +23,6 @@ export class TransportationComponent implements OnInit {
                 error => {
                     this.transportationFootprint = "Uncalculated"
                 });
+        console.log(this.transportationService.getTransportationFootprint(this.currentUser))
     }
 }

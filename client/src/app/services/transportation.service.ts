@@ -10,7 +10,7 @@ export class TransportationService {
     constructor(private http: HttpClient) { }
 
     getTransportationFootprint(user: User) {
-        return this.http.get('http://localhost:8080/transportation/getTransportationCO2/' + user, { // fix endpoint
+        return this.http.get('http://localhost:8080/transportation/getTransportationCO2/' + user, {
             params: {}
         }).pipe(map(result => {
             return result
