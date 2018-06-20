@@ -9,15 +9,15 @@ import { QuestionItem, ShortAnswer, Dropdown } from '../questionItem';
 export class ReusableDishwareQuestionnaireComponent implements OnInit {
   title: string = "Reusable Dishware";
   reusableQuestions: QuestionItem[] = [
-    <ShortAnswer> {id: 1, question: "How many single-use styrofoam products do you use per day at work?", answer: "1", type: "ShortAnswer"},
-    <ShortAnswer> {id: 2, question: "How many single-use plastic products do you use per day at work?", answer: "1", type: "ShortAnswer"},
-    <ShortAnswer> {id: 3, question: "How many single-use Bagasse products do you use per day at work?", answer: "1", type: "ShortAnswer"},
-    <ShortAnswer> {id: 4, question: "How many single-use non-recycled paper products do you use per day at work?", answer: "1", type: "ShortAnswer"},
-    <ShortAnswer> {id: 5, question: "How many single-use recycled paper products do you use per day at work?", answer: "1", type: "ShortAnswer"}
+    <ShortAnswer> {id: 1, question: "How many single-use styrofoam products do you use per day at work?", answer: "0", type: "ShortAnswer"},
+    <ShortAnswer> {id: 2, question: "How many single-use plastic products do you use per day at work?", answer: "0", type: "ShortAnswer"},
+    <ShortAnswer> {id: 3, question: "How many single-use Bagasse products do you use per day at work?", answer: "0", type: "ShortAnswer"},
+    <ShortAnswer> {id: 4, question: "How many single-use non-recycled paper products do you use per day at work?", answer: "0", type: "ShortAnswer"},
+    <ShortAnswer> {id: 5, question: "How many single-use recycled paper products do you use per day at work?", answer: "0", type: "ShortAnswer"}
   ];
   prevPage = "food-questionnaire";
   nextPage = "transportation-questionnaire";
-  
+
   constructor() { }
 
   ngOnInit() {
